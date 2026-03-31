@@ -30,6 +30,7 @@ import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.*
 import java.util.*
+// https://developers.google.com/android/reference/com/google/android/gms/maps/model/BitmapDescriptorFactory
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 
 
@@ -45,6 +46,7 @@ class MainActivity : ComponentActivity() {
     // state variables that UI will observe
     private var userLatLng by mutableStateOf<LatLng?>(null)
     private var addressText by mutableStateOf("Locating...")
+    //ch 58
     private val customMarkers = mutableStateListOf<LatLng>()
 
     override fun onCreate(savedInstanceState: Bundle?){
@@ -118,6 +120,7 @@ fun MapScreen(userPos: LatLng?, address: String, customMarkers: MutableList<LatL
     }
 
     // auto launch the permission
+    // ch 37 ish
     LaunchedEffect(Unit) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED) {
